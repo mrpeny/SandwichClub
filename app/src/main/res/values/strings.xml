@@ -2,10 +2,10 @@
     <string name="app_name">Sandwich Club</string>
 
     <!-- Detail Activity-->
-    <string name="detail_also_known_as_label">Also known as:</string>
-    <string name="detail_place_of_origin_label">Place of origin:</string>
-    <string name="detail_description_label">Description:</string>
-    <string name="detail_ingredients_label">Ingredients:</string>
+    <string name="detail_also_known_as_label">Also known as</string>
+    <string name="detail_place_of_origin_label">Place of origin</string>
+    <string name="detail_description_label">Description</string>
+    <string name="detail_ingredients_label">Ingredients</string>
 
     <!-- Content descriptions-->
     <string name="sandwich_picture_content_description">Sandwich picture</string>
@@ -128,4 +128,6 @@
         </item>
     </string-array>
 
+    <!-- Helper text for editing -->
+    <string name="text_string">A club sandwich, also called a clubhouse sandwich, is a sandwich of bread (occasionally toasted), slice cooked poultry, fried bacon, lettuce, tomato, and mayonnaise. It is often cut into quarters or halves and held together by cocktail sticks. Modern versions frequently have two layers which are separated by an additional slice of bread.</string>
 </resources>

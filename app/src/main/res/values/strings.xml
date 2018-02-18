@@ -128,6 +128,6 @@
         </item>
     </string-array>
 
-    <!-- Helper text for editing -->
+    <!-- Helper text for layout editing -->
     <string name="text_string">A club sandwich, also called a clubhouse sandwich, is a sandwich of bread (occasionally toasted), slice cooked poultry, fried bacon, lettuce, tomato, and mayonnaise. It is often cut into quarters or halves and held together by cocktail sticks. Modern versions frequently have two layers which are separated by an additional slice of bread.</string>
 </resources>

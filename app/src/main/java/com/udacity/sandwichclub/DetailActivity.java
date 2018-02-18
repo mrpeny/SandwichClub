@@ -87,32 +87,40 @@ public class DetailActivity extends AppCompatActivity {
 
         List<String> alsoKnownAsList = sandwich.getAlsoKnownAs();
         if (alsoKnownAsList.isEmpty()) {
-            hideView(mAlsoKnownAsLabelTextView);
-            hideView(mAlsoKnownAsTextView);
+            hideAlsoKnownAsSection();
         } else {
             mAlsoKnownAsTextView.setText(getListAsString(alsoKnownAsList));
         }
 
         List<String> ingredientsList = sandwich.getIngredients();
         if (ingredientsList.isEmpty()) {
-            hideView(mIngredientsLabelTextView);
-            hideView(mIngredientsTextView);
+            hideIngredientsSection();
         } else {
             mIngredientsTextView.setText(getListAsString(ingredientsList));
         }
 
         String placeOfOriginString = sandwich.getPlaceOfOrigin();
         if (TextUtils.isEmpty(placeOfOriginString)) {
-            hideView(mOriginLabelTextView);
-            hideView(mOriginTextView);
+            hidePlaceOfOriginSection();
         } else {
             mOriginTextView.setText(placeOfOriginString);
         }
         mDescriptionTextView.setText(sandwich.getDescription());
     }
 
-    private void hideView(View view) {
-        view.setVisibility(View.GONE);
+    private void hidePlaceOfOriginSection() {
+        mOriginLabelTextView.setVisibility(View.GONE);
+        mOriginTextView.setVisibility(View.GONE);
+    }
+
+    private void hideIngredientsSection() {
+        mIngredientsLabelTextView.setVisibility(View.GONE);
+        mIngredientsTextView.setVisibility(View.GONE);
+    }
+
+    private void hideAlsoKnownAsSection() {
+        mAlsoKnownAsLabelTextView.setVisibility(View.GONE);
+        mAlsoKnownAsTextView.setVisibility(View.GONE);
     }
 
     private String getListAsString(List<String> list) {

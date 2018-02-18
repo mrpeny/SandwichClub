@@ -2,6 +2,9 @@ package com.udacity.sandwichclub.model;
 
 import java.util.List;
 
+/**
+ * Represents Sandwiches parsed from JSON.
+ */
 public class Sandwich {
 
     private String mainName;

@@ -83,6 +83,7 @@ public class DetailActivity extends AppCompatActivity {
         setTitle(sandwich.getMainName());
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.sandwich_placeholder)
                 .into(mSandwichImageView);
 
         List<String> alsoKnownAsList = sandwich.getAlsoKnownAs();

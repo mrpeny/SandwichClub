@@ -33,26 +33,41 @@ public class JsonUtils {
      * @return the {@link Sandwich} object parsed from the given string
      */
     public static Sandwich parseSandwichJson(String json) throws JSONException {
+        JSONObject name;
+        String mainName = "";
+        JSONArray alsoKnownAs = null;
+        JSONArray ingredients = null;
+        List<String> alsoKnownAsList = new ArrayList<>();
+        List<String> ingredientsList = new ArrayList<>();
+
         JSONObject sandwichJson = new JSONObject(json);
 
-        JSONObject name = sandwichJson.getJSONObject(NAME);
-        String mainName = name.getString(MAIN_NAME);
-        JSONArray alsoKnownAs = name.getJSONArray(ALSO_KNOWN_AS);
-
-        String placeOfOrigin = sandwichJson.getString(PLACE_OF_ORIGIN);
-        String description = sandwichJson.getString(DESCRIPTION);
-        String imageUrl = sandwichJson.getString(IMAGE_URL);
-
-        JSONArray ingredients = sandwichJson.getJSONArray(INGREDIENTS);
-
-        List<String> alsoKnownAsList = new ArrayList<>();
-        for (int i = 0; i < alsoKnownAs.length(); i++) {
-            alsoKnownAsList.add(alsoKnownAs.getString(i));
+        if (sandwichJson.has(NAME)) {
+            name = sandwichJson.getJSONObject(NAME);
+            mainName = name.optString(MAIN_NAME);
+            if (name.has(ALSO_KNOWN_AS)) {
+                alsoKnownAs = name.getJSONArray(ALSO_KNOWN_AS);
+            }
         }
 
-        List<String> ingredientsList = new ArrayList<>();
-        for (int i = 0; i < ingredients.length(); i++) {
-            ingredientsList.add(ingredients.getString(i));
+        String placeOfOrigin = sandwichJson.optString(PLACE_OF_ORIGIN);
+        String description = sandwichJson.optString(DESCRIPTION);
+        String imageUrl = sandwichJson.optString(IMAGE_URL);
+
+        if (sandwichJson.has(INGREDIENTS)) {
+            ingredients = sandwichJson.getJSONArray(INGREDIENTS);
+        }
+
+        if (alsoKnownAs != null) {
+            for (int i = 0; i < alsoKnownAs.length(); i++) {
+                alsoKnownAsList.add(alsoKnownAs.getString(i));
+            }
+        }
+
+        if (ingredients != null) {
+            for (int i = 0; i < ingredients.length(); i++) {
+                ingredientsList.add(ingredients.getString(i));
+            }
         }
 
         return new Sandwich(mainName, alsoKnownAsList, placeOfOrigin, description, imageUrl,
